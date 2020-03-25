@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "hacker-news-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/hackerNews/HackerNewsWebPart.js",
+          "manifest": "./src/webparts/hackerNews/HackerNewsWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "HackerNewsWebPartStrings": "lib/webparts/hackerNews/loc/{locale}.js"
+  }
+}

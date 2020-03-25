@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "sp-hacker-news-client-side-solution",
+    "id": "1bc3c24a-a2d8-4493-8a97-f1dda66a8a0b",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/sp-hacker-news.sppkg"
+  }
+}
