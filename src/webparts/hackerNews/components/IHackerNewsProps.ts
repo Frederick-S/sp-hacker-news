@@ -1,3 +1,3 @@
 export interface IHackerNewsProps {
-  description: string;
+  description: string
 }

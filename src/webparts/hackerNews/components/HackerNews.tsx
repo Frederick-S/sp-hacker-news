@@ -1,25 +1,36 @@
-import * as React from 'react';
-import styles from './HackerNews.module.scss';
-import { IHackerNewsProps } from './IHackerNewsProps';
-import { escape } from '@microsoft/sp-lodash-subset';
+import * as React from 'react'
+import { IHackerNewsProps } from './IHackerNewsProps'
+import { Label } from 'office-ui-fabric-react/lib/Label'
+import { Pivot, PivotItem, IPivotStyles } from 'office-ui-fabric-react/lib/Pivot'
+import { IStyleSet } from 'office-ui-fabric-react/lib/Styling'
+
+const pivotStyles: Partial<IStyleSet<IPivotStyles>> = {
+  root: {
+    textAlign: 'center'
+  }
+}
 
 export default class HackerNews extends React.Component<IHackerNewsProps, {}> {
   public render(): React.ReactElement<IHackerNewsProps> {
     return (
-      <div className={ styles.hackerNews }>
-        <div className={ styles.container }>
-          <div className={ styles.row }>
-            <div className={ styles.column }>
-              <span className={ styles.title }>Welcome to SharePoint!</span>
-              <p className={ styles.subTitle }>Customize SharePoint experiences using Web Parts.</p>
-              <p className={ styles.description }>{escape(this.props.description)}</p>
-              <a href="https://aka.ms/spfx" className={ styles.button }>
-                <span className={ styles.label }>Learn more</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+      <Pivot aria-label="Hacker News" styles={pivotStyles}>
+        <PivotItem
+          headerText="Top"
+          headerButtonProps={{
+            'data-order': 1
+          }}
+        >
+          <Label>Pivot #1</Label>
+        </PivotItem>
+        <PivotItem
+          headerText="New"
+          headerButtonProps={{
+            'data-order': 2
+          }}
+        >
+          <Label>Pivot #2</Label>
+        </PivotItem>
+      </Pivot>
+    )
   }
 }
