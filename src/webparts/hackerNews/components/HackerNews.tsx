@@ -2,8 +2,9 @@ import * as React from 'react'
 import { IHackerNewsProps } from './IHackerNewsProps'
 import { Label } from 'office-ui-fabric-react/lib/Label'
 import { List } from 'office-ui-fabric-react/lib/List'
+import { Link } from 'office-ui-fabric-react/lib/Link'
 import { Pivot, PivotItem, IPivotStyles } from 'office-ui-fabric-react/lib/Pivot'
-import { IStyleSet } from 'office-ui-fabric-react/lib/Styling'
+import { IStyleSet, mergeStyleSets } from 'office-ui-fabric-react/lib/Styling'
 import axios from 'axios'
 import FeedItem from '../data/FeedItem'
 
@@ -13,8 +14,36 @@ const pivotStyles: Partial<IStyleSet<IPivotStyles>> = {
   }
 }
 
+interface IClassNames {
+  header: string
+  domain: string
+  list: string
+  feed: string
+  meta: string
+}
+
+const classNames: IClassNames = mergeStyleSets({
+  header: {
+    textAlign: 'center'
+  },
+  domain: {
+    marginLeft: 5
+  },
+  list: {
+    margin: 10
+  },
+  feed: {
+    marginTop: 10,
+    marginBottom: 10
+  },
+  meta: {
+    fontSize: 12,
+    color: 'gray'
+  }
+})
+
 interface IState {
-  news: FeedItem[]
+  top: FeedItem[]
 }
 
 export default class HackerNews extends React.Component<IHackerNewsProps, IState> {
@@ -22,25 +51,25 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
     super(props)
 
     this.state = {
-      news: []
+      top: []
     }
   }
 
   public render(): React.ReactElement<IHackerNewsProps> {
-    const { news } = this.state
+    const { top } = this.state
 
     return (
       <Pivot aria-label="Hacker News" styles={pivotStyles}>
         <PivotItem
-          headerText="News"
+          headerText="Top"
           headerButtonProps={{
             'data-order': 1
           }}
         >
-          <List items={news} onRenderCell={this.onRenderCell}></List>
+          <List items={top} onRenderCell={this.onRenderCell} className={classNames.list}></List>
         </PivotItem>
         <PivotItem
-          headerText="Newest"
+          headerText="New"
           headerButtonProps={{
             'data-order': 2
           }}
@@ -55,7 +84,7 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
     axios.get('https://api.hnpwa.com/v0/news/1.json')
       .then(response => {
         this.setState({
-          news: response.data
+          top: response.data
         })
       })
       .catch(error => {
@@ -65,8 +94,16 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
 
   private onRenderCell(item: FeedItem, index: number | undefined): JSX.Element {
     return (
-      <div>
-        <div>{item.title}</div>
+      <div className={classNames.feed}>
+        <div>
+          <Link href={item.url} target="_blank">{item.title}</Link>
+          <span className={classNames.domain}>({item.domain})</span>
+        </div>
+        <div className={classNames.meta}>
+          <span>
+            {item.points} points by {item.user} {item.time_ago} | {item.comments_count} {item.comments_count > 1 ? 'comments' : 'comment'}
+          </span>
+        </div>
       </div>
     )
   }
