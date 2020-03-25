@@ -5,6 +5,7 @@ import { List } from 'office-ui-fabric-react/lib/List'
 import { Link } from 'office-ui-fabric-react/lib/Link'
 import { Pivot, PivotItem, IPivotStyles } from 'office-ui-fabric-react/lib/Pivot'
 import { IStyleSet, mergeStyleSets } from 'office-ui-fabric-react/lib/Styling'
+import { Spinner, SpinnerSize } from 'office-ui-fabric-react/lib/Spinner'
 import axios from 'axios'
 import FeedItem from '../data/FeedItem'
 
@@ -44,6 +45,7 @@ const classNames: IClassNames = mergeStyleSets({
 
 interface IState {
   top: FeedItem[]
+  loading: boolean
 }
 
 export default class HackerNews extends React.Component<IHackerNewsProps, IState> {
@@ -51,12 +53,13 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
     super(props)
 
     this.state = {
-      top: []
+      top: [],
+      loading: true
     }
   }
 
   public render(): React.ReactElement<IHackerNewsProps> {
-    const { top } = this.state
+    const { top, loading } = this.state
 
     return (
       <Pivot aria-label="Hacker News" styles={pivotStyles}>
@@ -66,7 +69,9 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
             'data-order': 1
           }}
         >
-          <List items={top} onRenderCell={this.onRenderCell} className={classNames.list}></List>
+          {
+            loading ? <Spinner size={SpinnerSize.large}></Spinner> : <List items={top} onRenderCell={this.onRenderCell} className={classNames.list}></List>
+          }
         </PivotItem>
         <PivotItem
           headerText="New"
@@ -84,11 +89,16 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
     axios.get('https://api.hnpwa.com/v0/news/1.json')
       .then(response => {
         this.setState({
-          top: response.data
+          top: response.data,
+          loading: false
         })
       })
       .catch(error => {
         console.error(error)
+
+        this.setState({
+          loading: false
+        })
       })
   }
 
