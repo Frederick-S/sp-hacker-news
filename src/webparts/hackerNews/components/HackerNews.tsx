@@ -71,6 +71,24 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
         title: 'New',
         data: [],
         requestUrl: 'https://api.hnpwa.com/v0/newest/1.json'
+      },
+      {
+        key: 'show',
+        title: 'Show',
+        data: [],
+        requestUrl: 'https://api.hnpwa.com/v0/show/1.json'
+      },
+      {
+        key: 'ask',
+        title: 'Ask',
+        data: [],
+        requestUrl: 'https://api.hnpwa.com/v0/ask/1.json'
+      },
+      {
+        key: 'jobs',
+        title: 'Jobs',
+        data: [],
+        requestUrl: 'https://api.hnpwa.com/v0/jobs/1.json'
       }
     ]
 
@@ -82,13 +100,13 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
   }
 
   public render(): React.ReactElement<IHackerNewsProps> {
-    const { sections, loading } = this.state
+    const { sections, loading, selectedSectionKey } = this.state
 
     return (
-      <Pivot aria-label="Hacker News" styles={pivotStyles} onLinkClick={this.handlePivotClick}>
+      <Pivot aria-label="Hacker News" styles={pivotStyles} onLinkClick={this.handlePivotClick.bind(this)} selectedKey={selectedSectionKey}>
         {
           sections.map((section) => {
-            return <PivotItem headerText={section.title} key={section.key}>
+            return <PivotItem headerText={section.title} key={section.key} itemKey={section.key}>
               {
                 loading ? <Spinner size={SpinnerSize.large}></Spinner> : <List items={section.data} onRenderCell={this.onRenderCell} className={classNames.list}></List>
               }
@@ -159,6 +177,21 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
   }
 
   private handlePivotClick(item: PivotItem) {
-    console.log(item)
+    const targetSectionKey = item.props.itemKey
+    const targetSection = this.state
+      .sections
+      .find(section => section.key === targetSectionKey)
+
+    if (targetSectionKey === this.state.selectedSectionKey || this.state.loading) {
+      return
+    }
+
+    this.setState({
+      selectedSectionKey: targetSectionKey
+    })
+
+    if (targetSection.data.length === 0) {
+      this.querySectionData(targetSectionKey)
+    }
   }
 }
