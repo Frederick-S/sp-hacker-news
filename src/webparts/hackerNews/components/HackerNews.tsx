@@ -132,6 +132,10 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
       return
     }
 
+    this.setState({
+      loading: true
+    })
+
     axios.get(currentSection.requestUrl)
       .then(response => {
         const sections = this.state
