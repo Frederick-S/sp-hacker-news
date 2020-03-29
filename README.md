@@ -1,4 +1,4 @@
-## sp-hacker-news
+# sp-hacker-news
 A simple Hacker News client for SharePoint Online.
 
 ## License
