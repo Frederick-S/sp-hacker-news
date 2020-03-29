@@ -1,27 +1,16 @@
 import * as React from 'react'
 import * as ReactDom from 'react-dom'
 import { Version } from '@microsoft/sp-core-library'
-import {
-  IPropertyPaneConfiguration,
-  PropertyPaneTextField
-} from '@microsoft/sp-property-pane'
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base'
-import * as strings from 'HackerNewsWebPartStrings'
 import HackerNews from './components/HackerNews'
 import { IHackerNewsProps } from './components/IHackerNewsProps'
 
 export interface IHackerNewsWebPartProps {
-  description: string
 }
 
 export default class HackerNewsWebPart extends BaseClientSideWebPart <IHackerNewsWebPartProps> {
   public render(): void {
-    const element: React.ReactElement<IHackerNewsProps> = React.createElement(
-      HackerNews,
-      {
-        description: this.properties.description
-      }
-    )
+    const element: React.ReactElement<IHackerNewsProps> = React.createElement(HackerNews)
 
     ReactDom.render(element, this.domElement)
   }
@@ -32,27 +21,5 @@ export default class HackerNewsWebPart extends BaseClientSideWebPart <IHackerNew
 
   protected get dataVersion(): Version {
     return Version.parse('1.0')
-  }
-
-  protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
-    return {
-      pages: [
-        {
-          header: {
-            description: strings.PropertyPaneDescription
-          },
-          groups: [
-            {
-              groupName: strings.BasicGroupName,
-              groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
-                })
-              ]
-            }
-          ]
-        }
-      ]
-    }
   }
 }
