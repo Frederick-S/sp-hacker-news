@@ -46,6 +46,7 @@ interface ISection {
   key: string
   title: string
   data: FeedItem[]
+  requestUrl: string
 }
 
 interface IState {
@@ -62,12 +63,14 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
       {
         key: 'top',
         title: 'Top',
-        data: []
+        data: [],
+        requestUrl: 'https://api.hnpwa.com/v0/news/1.json'
       },
       {
         key: 'new',
         title: 'New',
-        data: []
+        data: [],
+        requestUrl: 'https://api.hnpwa.com/v0/newest/1.json'
       }
     ]
 
@@ -97,12 +100,26 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
   }
 
   public componentDidMount() {
-    axios.get('https://api.hnpwa.com/v0/news/1.json')
+    this.querySectionData(this.state.selectedSectionKey)
+  }
+
+  private querySectionData(sectionKey: string) {
+    const currentSection = this.state
+      .sections
+      .find(section => section.key === sectionKey)
+
+    if (!currentSection) {
+      console.error(`Invalid section with key: ${sectionKey}`)
+
+      return
+    }
+
+    axios.get(currentSection.requestUrl)
       .then(response => {
         const sections = this.state
           .sections
           .map(section => {
-            if (section.key === this.state.selectedSectionKey) {
+            if (section.key === sectionKey) {
               section.data = response.data
             }
 
