@@ -1,0 +1,13 @@
+image: Visual Studio 2019
+build: off
+environment:
+  matrix:
+    - nodejs_version: "8"
+    - nodejs_version: "10"
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - yarn
+test_script:
+  - node --version
+  - npm --version
+  - yarn build
