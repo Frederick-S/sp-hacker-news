@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { IHackerNewsProps } from './IHackerNewsProps'
-import { Label } from 'office-ui-fabric-react/lib/Label'
 import { List } from 'office-ui-fabric-react/lib/List'
 import { Link } from 'office-ui-fabric-react/lib/Link'
 import { Pivot, PivotItem, IPivotStyles } from 'office-ui-fabric-react/lib/Pivot'
@@ -43,8 +42,14 @@ const classNames: IClassNames = mergeStyleSets({
   }
 })
 
+interface ISection {
+  key: string
+  title: string
+  data: FeedItem[]
+}
+
 interface IState {
-  top: FeedItem[]
+  sections: ISection[]
   loading: boolean
 }
 
@@ -52,19 +57,11 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
   constructor(props) {
     super(props)
 
-    this.state = {
-      top: [],
-      loading: true
-    }
-  }
-
-  public render(): React.ReactElement<IHackerNewsProps> {
-    const { top, loading } = this.state
-    const items = [
+    const sections: ISection[] = [
       {
         key: 'top',
         title: 'Top',
-        data: top
+        data: []
       },
       {
         key: 'new',
@@ -73,13 +70,22 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
       }
     ]
 
+    this.state = {
+      sections,
+      loading: true
+    }
+  }
+
+  public render(): React.ReactElement<IHackerNewsProps> {
+    const { sections, loading } = this.state
+
     return (
-      <Pivot aria-label="Hacker News" styles={pivotStyles}>
+      <Pivot aria-label="Hacker News" styles={pivotStyles} onLinkClick={this.handlePivotClick}>
         {
-          items.map((item) => {
-            return <PivotItem headerText={item.title} key={item.key}>
+          sections.map((section) => {
+            return <PivotItem headerText={section.title} key={section.key}>
               {
-                loading ? <Spinner size={SpinnerSize.large}></Spinner> : <List items={item.data} onRenderCell={this.onRenderCell} className={classNames.list}></List>
+                loading ? <Spinner size={SpinnerSize.large}></Spinner> : <List items={section.data} onRenderCell={this.onRenderCell} className={classNames.list}></List>
               }
             </PivotItem>
           })
@@ -89,10 +95,22 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
   }
 
   public componentDidMount() {
+    const defaultSectionKey = 'top'
+
     axios.get('https://api.hnpwa.com/v0/news/1.json')
       .then(response => {
+        const sections = this.state
+          .sections
+          .map(section => {
+            if (section.key === defaultSectionKey) {
+              section.data = response.data
+            }
+
+            return section
+          })
+
         this.setState({
-          top: response.data,
+          sections,
           loading: false
         })
       })
@@ -121,5 +139,9 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
         </div>
       </div>
     )
+  }
+
+  private handlePivotClick(item: PivotItem) {
+    console.log(item)
   }
 }
