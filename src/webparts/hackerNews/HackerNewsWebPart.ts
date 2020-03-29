@@ -6,7 +6,6 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-property-pane'
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base'
-
 import * as strings from 'HackerNewsWebPartStrings'
 import HackerNews from './components/HackerNews'
 import { IHackerNewsProps } from './components/IHackerNewsProps'

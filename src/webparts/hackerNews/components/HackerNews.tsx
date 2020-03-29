@@ -107,7 +107,9 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
       <div className={classNames.feed}>
         <div>
           <Link href={item.url} target="_blank">{item.title}</Link>
-          <span className={classNames.domain}>({item.domain})</span>
+          {
+            item.domain ? <span className={classNames.domain}>({item.domain})</span> : ''
+          }
         </div>
         <div className={classNames.meta}>
           <span>
