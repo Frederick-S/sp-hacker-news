@@ -50,6 +50,7 @@ interface ISection {
 
 interface IState {
   sections: ISection[]
+  selectedSectionKey: string
   loading: boolean
 }
 
@@ -72,6 +73,7 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
 
     this.state = {
       sections,
+      selectedSectionKey: 'top',
       loading: true
     }
   }
@@ -95,14 +97,12 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
   }
 
   public componentDidMount() {
-    const defaultSectionKey = 'top'
-
     axios.get('https://api.hnpwa.com/v0/news/1.json')
       .then(response => {
         const sections = this.state
           .sections
           .map(section => {
-            if (section.key === defaultSectionKey) {
+            if (section.key === this.state.selectedSectionKey) {
               section.data = response.data
             }
 
