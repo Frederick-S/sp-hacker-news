@@ -60,32 +60,35 @@ export default class HackerNews extends React.Component<IHackerNewsProps, IState
 
   public render(): React.ReactElement<IHackerNewsProps> {
     const { top, loading } = this.state
+    const items = [
+      {
+        key: 'top',
+        title: 'Top',
+        data: top
+      },
+      {
+        key: 'new',
+        title: 'New',
+        data: []
+      }
+    ]
 
     return (
       <Pivot aria-label="Hacker News" styles={pivotStyles}>
-        <PivotItem
-          headerText="Top"
-          headerButtonProps={{
-            'data-order': 1
-          }}
-        >
-          {
-            loading ? <Spinner size={SpinnerSize.large}></Spinner> : <List items={top} onRenderCell={this.onRenderCell} className={classNames.list}></List>
-          }
-        </PivotItem>
-        <PivotItem
-          headerText="New"
-          headerButtonProps={{
-            'data-order': 2
-          }}
-        >
-          <Label>Pivot #2</Label>
-        </PivotItem>
+        {
+          items.map((item) => {
+            return <PivotItem headerText={item.title} key={item.key}>
+              {
+                loading ? <Spinner size={SpinnerSize.large}></Spinner> : <List items={item.data} onRenderCell={this.onRenderCell} className={classNames.list}></List>
+              }
+            </PivotItem>
+          })
+        }
       </Pivot>
     )
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     axios.get('https://api.hnpwa.com/v0/news/1.json')
       .then(response => {
         this.setState({
