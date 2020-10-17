@@ -20,7 +20,7 @@
     "@microsoft/sp-property-pane": "1.10.0",
     "@microsoft/sp-webpart-base": "1.10.0",
     "@types/es6-promise": "0.0.33",
-    "@types/react": "16.8.8",
+    "@types/react": "16.9.53",
     "@types/react-dom": "16.8.3",
     "@types/webpack-env": "1.13.1",
     "axios": "^0.19.2",
@@ -29,7 +29,7 @@
     "react-dom": "16.8.5"
   },
   "resolutions": {
-    "@types/react": "16.8.8"
+    "@types/react": "16.9.53"
   },
   "devDependencies": {
     "@microsoft/sp-build-web": "1.10.0",
