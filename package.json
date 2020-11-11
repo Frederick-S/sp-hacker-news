@@ -39,7 +39,7 @@
     "@microsoft/rush-stack-compiler-3.3": "0.3.5",
     "gulp": "~3.9.1",
     "@types/chai": "3.4.34",
-    "@types/mocha": "2.2.38",
+    "@types/mocha": "8.0.4",
     "ajv": "~5.2.2"
   }
 }
