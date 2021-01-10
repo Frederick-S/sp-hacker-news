@@ -8,5 +8,8 @@ A simple Hacker News client for SharePoint Online.
 * [SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/sharepoint-framework-overview)
 * [Fluent UI](https://developer.microsoft.com/en-us/fluentui#/)
 
+## Buy me a coffee
+<a href="https://www.buymeacoffee.com/XiaodanMao" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
 ## License
 [MIT](LICENSE)
