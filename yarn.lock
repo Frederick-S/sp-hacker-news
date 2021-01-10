@@ -539,14 +539,14 @@
   dependencies:
     tslib "~1.9.3"
 
-"@microsoft/sp-office-ui-fabric-core@1.10.0":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@microsoft/sp-office-ui-fabric-core/-/sp-office-ui-fabric-core-1.10.0.tgz#b704e5192042bdd35a19827d82c07d80d672f162"
-  integrity sha512-UGcK/1Nq1g/TKYvY499S3ofLyHHCTZ93BILE77KEXr4+FdZmsboWvrLNaoA0rp5bABjrdVyNYwNkT8vvFXK5PQ==
+"@microsoft/sp-office-ui-fabric-core@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/@microsoft/sp-office-ui-fabric-core/-/sp-office-ui-fabric-core-1.11.0.tgz#673afb30d0347dddce6e77bde110a17e5acb02b1"
+  integrity sha512-tc9dddjQPviaqI1AhCxnU2nMCx75zJhQHuy8vDqXCW2a6m7pjjM7SLGQcN8DRMk6/h/AKFy1TqyP2Q8o0lSQOg==
   dependencies:
     "@types/webpack-env" "1.13.1"
     office-ui-fabric-core "9.6.1-fluent2"
-    tslib "~1.9.3"
+    tslib "~1.10.0"
 
 "@microsoft/sp-page-context@1.10.0":
   version "1.10.0"
@@ -10840,6 +10840,11 @@ tslib@^1.10.0, tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.11.1.tgz#eb15d128827fbee2841549e171f45ed338ac7e35"
   integrity sha512-aZW88SY8kQbU7gpV19lN24LtXh/yD4ZZg6qieAJDDg+YBsJcSmLGK9QpnUjAKVG/xefmvJGd1WUmfpT/g6AJGA==
+
+tslib@~1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
+  integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 
 tslib@~1.9.3:
   version "1.9.3"
