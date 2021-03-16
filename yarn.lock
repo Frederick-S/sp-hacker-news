@@ -523,6 +523,14 @@
     "@types/webpack-env" "1.13.1"
     tslib "~1.9.3"
 
+"@microsoft/sp-lodash-subset@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@microsoft/sp-lodash-subset/-/sp-lodash-subset-1.12.0.tgz#bec6376098220b3bbad9bd1ce7a3379d85b7f042"
+  integrity sha512-9uxULJJyoJ57H7ir0FiZDSshDFsvAz83XpRtrJAOhIyBCWhyFd4EkwGQX5842XEjaO70ilY42/ZEBu034fA7vg==
+  dependencies:
+    "@types/lodash" "4.14.117"
+    tslib "~1.10.0"
+
 "@microsoft/sp-module-interfaces@1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@microsoft/sp-module-interfaces/-/sp-module-interfaces-1.10.0.tgz#d60e2b51ba1efbb05610a5a4f9474537655c61d5"
@@ -10840,6 +10848,11 @@ tslib@^1.10.0, tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.11.1.tgz#eb15d128827fbee2841549e171f45ed338ac7e35"
   integrity sha512-aZW88SY8kQbU7gpV19lN24LtXh/yD4ZZg6qieAJDDg+YBsJcSmLGK9QpnUjAKVG/xefmvJGd1WUmfpT/g6AJGA==
+
+tslib@~1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
+  integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 
 tslib@~1.9.3:
   version "1.9.3"
