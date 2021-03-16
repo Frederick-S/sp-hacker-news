@@ -532,6 +532,14 @@
     "@types/z-schema" "3.16.31"
     z-schema "~3.18.3"
 
+"@microsoft/sp-module-interfaces@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@microsoft/sp-module-interfaces/-/sp-module-interfaces-1.12.0.tgz#9bf8dafb12d6ad6c69bb5f891eb0f19d87618137"
+  integrity sha512-B3Koafd6bsKp7qlCaZYGPkecW+vLyF7lYuPDs7KDO638NIbvbrykivEwCp1woEgHGSK2CHGXuKE01UQIk3H2JQ==
+  dependencies:
+    "@types/z-schema" "3.16.31"
+    z-schema "~3.18.3"
+
 "@microsoft/sp-odata-types@1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@microsoft/sp-odata-types/-/sp-odata-types-1.10.0.tgz#c897b4c7c26336894294eee9b2ac904e4dbd66ea"
