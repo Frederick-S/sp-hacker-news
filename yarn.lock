@@ -432,6 +432,16 @@
     "@types/es6-promise" "0.0.33"
     "@types/webpack-env" "1.13.1"
 
+"@microsoft/sp-core-library@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@microsoft/sp-core-library/-/sp-core-library-1.12.0.tgz#b5d6d8f0b1d61f0fa3699fb1837f32a43ce8dd0b"
+  integrity sha512-broE1w6N0JksX6/rGur2FAG+BYc0Rbdlj7biDI1EGFLfLRpcpb0i8SOQJGqm2PpruqZCuG+Ho5UEjaeIxAzcGQ==
+  dependencies:
+    "@microsoft/sp-lodash-subset" "1.12.0"
+    "@microsoft/sp-module-interfaces" "1.12.0"
+    "@microsoft/sp-odata-types" "1.12.0"
+    tslib "~1.10.0"
+
 "@microsoft/sp-diagnostics@1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@microsoft/sp-diagnostics/-/sp-diagnostics-1.10.0.tgz#5a1e290ef413587e0f2ece042ec7a61cded37e98"
@@ -523,6 +533,14 @@
     "@types/webpack-env" "1.13.1"
     tslib "~1.9.3"
 
+"@microsoft/sp-lodash-subset@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@microsoft/sp-lodash-subset/-/sp-lodash-subset-1.12.0.tgz#bec6376098220b3bbad9bd1ce7a3379d85b7f042"
+  integrity sha512-9uxULJJyoJ57H7ir0FiZDSshDFsvAz83XpRtrJAOhIyBCWhyFd4EkwGQX5842XEjaO70ilY42/ZEBu034fA7vg==
+  dependencies:
+    "@types/lodash" "4.14.117"
+    tslib "~1.10.0"
+
 "@microsoft/sp-module-interfaces@1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@microsoft/sp-module-interfaces/-/sp-module-interfaces-1.10.0.tgz#d60e2b51ba1efbb05610a5a4f9474537655c61d5"
@@ -532,12 +550,27 @@
     "@types/z-schema" "3.16.31"
     z-schema "~3.18.3"
 
+"@microsoft/sp-module-interfaces@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@microsoft/sp-module-interfaces/-/sp-module-interfaces-1.12.0.tgz#9bf8dafb12d6ad6c69bb5f891eb0f19d87618137"
+  integrity sha512-B3Koafd6bsKp7qlCaZYGPkecW+vLyF7lYuPDs7KDO638NIbvbrykivEwCp1woEgHGSK2CHGXuKE01UQIk3H2JQ==
+  dependencies:
+    "@types/z-schema" "3.16.31"
+    z-schema "~3.18.3"
+
 "@microsoft/sp-odata-types@1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@microsoft/sp-odata-types/-/sp-odata-types-1.10.0.tgz#c897b4c7c26336894294eee9b2ac904e4dbd66ea"
   integrity sha512-O3kGcABicM5mgG9jUzqTU6tXZZPIGRZcM6uGry+v8M31r+ktptXyOOd7DkReNzFFxDJuXnqTAjusHMVx1N5+2A==
   dependencies:
     tslib "~1.9.3"
+
+"@microsoft/sp-odata-types@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@microsoft/sp-odata-types/-/sp-odata-types-1.12.0.tgz#e127de329b35ccc54d0c376120b624aabc621481"
+  integrity sha512-QNlw9axz1ZKOSYohAm8qCPV7T3sZie84ejlktQYIATA666sMU/22sxzEi62n1zNnz1Uz3t4r+pDV1seP63m/jA==
+  dependencies:
+    tslib "~1.10.0"
 
 "@microsoft/sp-office-ui-fabric-core@1.10.0":
   version "1.10.0"
@@ -10840,6 +10873,11 @@ tslib@^1.10.0, tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.11.1.tgz#eb15d128827fbee2841549e171f45ed338ac7e35"
   integrity sha512-aZW88SY8kQbU7gpV19lN24LtXh/yD4ZZg6qieAJDDg+YBsJcSmLGK9QpnUjAKVG/xefmvJGd1WUmfpT/g6AJGA==
+
+tslib@~1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
+  integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 
 tslib@~1.9.3:
   version "1.9.3"
