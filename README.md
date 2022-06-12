@@ -3,7 +3,7 @@ A simple Hacker News client for SharePoint Online.
 
 ![](screenshot.png)
 
-## Doc
+## Thanks
 * [HNPWA API](https://github.com/tastejs/hacker-news-pwas/blob/master/docs/api.md)
 * [SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/sharepoint-framework-overview)
 * [Fluent UI](https://developer.microsoft.com/en-us/fluentui#/)
